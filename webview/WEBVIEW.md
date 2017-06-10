@@ -128,7 +128,7 @@ public void onConsoleMessage(String message, int lineNumber, String sourceID) {
 
 上面的只是webview与原生的交互过程，下面来看一下整个手写签批的流程
 
-![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/webiewNotifyApp.png "webview通知原生")
+![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/webviewNotifyApp.png "webview通知原生")
 
 
 ![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/appNotifyWebview.png "原生通知webview")
