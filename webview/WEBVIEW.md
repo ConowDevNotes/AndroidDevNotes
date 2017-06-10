@@ -131,4 +131,4 @@ public void onConsoleMessage(String message, int lineNumber, String sourceID) {
 ![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/webiewNotifyApp.png "webview通知原生")
 
 
-![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/appNotifyWebview.svg "原生通知webview")
+![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/appNotifyWebview.png "原生通知webview")
