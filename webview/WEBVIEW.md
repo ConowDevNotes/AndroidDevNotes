@@ -132,3 +132,42 @@ public void onConsoleMessage(String message, int lineNumber, String sourceID) {
 
 
 ![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/appNotifyWebview.png "原生通知webview")
+
+
+### 2.3 优化
+
+#### 2.3.1 资源预加载
+
+**Webview一次加载过程会有许多外部依赖的 JS、CSS、图片等资源需要下载，我们可以提前将这些资源缓存好，等页面加载时直接进行替换**
+
+1. 将前端的一些框架文件（jQuery,angular）打包到apk安装里面
+2. 使用`shouldInterceptRequest`这个方法来拦截请求的url，判断当前请求的资源是否我们已经在apk包中存在，
+如果存在则取之来加载，反之从网络加载。
+
+etc.
+```
+@Override
+public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+    String url = request.getUrl().toString();
+    //解析请求文件的名称
+    ...
+    //从asset读取文件
+    if(WebviewUtil.webviewResSet.contains(fileName)){
+        AssetManager manager = AppContext.getInstance().getAssets();
+        try {
+            String assetPath = WebviewUtil.ASSET_WEBVIEW_RES_PATH + fileName;
+            //开启流，读取apk安装包里面的文件
+            InputStream is = manager.open(assetPath);
+            WebResourceResponse webResourceResponse;
+            assert fileName != null;
+            if(fileName.endsWith(".js")){
+                webResourceResponse = new WebResourceResponse("application/x-javascript","UTF-8",is);
+            }
+            return webResourceResponse;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    return super.shouldInterceptRequest(view, request);
+}
+```
