@@ -162,7 +162,7 @@ private void buildDrawRectList() {
 ```
 
 画矩形首先要确定好它的位置,也就是要确定它的坐标，分别是它的4个角的坐标
-![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/rectRect.png "矩形坐标")
+![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/rectXy.png "矩形坐标")
 
 #### 2.3.4 拿起画笔在画布上绘制
 
