@@ -189,7 +189,7 @@ private void buildDrawRectList() {
 ```
 
 #### 2.3.5 最终效果
-![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/finalView.png "现代菜单")
+![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/finalView.jpg "现代菜单")
 
 
 
