@@ -188,7 +188,36 @@ private void buildDrawRectList() {
     }
 ```
 
-#### 2.3.5 最终效果
+#### 2.3.5 最后要暴露数据接口给外部
+数据传进来的时候，记得调用`invalidate()`重绘就可以了
+
+```
+public void setMenu(List<Map> datas) {
+    if (datas != null && datas.size() > 0) {
+        dataList.clear();
+        dataList.addAll(datas);
+        needReDraw = true;
+        //进行重绘，必不可少
+        invalidate();
+    }
+}
+```
+
+
+#### 2.3.6 最终效果
+通过xml配置，以及传入的数据，即可
+```
+<cn.conow.arp.widget.ModernMenuView
+    android:id="@+id/menu_view"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:background="@drawable/bg_menu"
+    app:space="3dp"
+    app:pad="8dp"
+    app:iconSize="10sp"
+    app:cornerRadius="5dp"/>
+```
+
 ![](https://github.com/ConowDevNotes/AndroidDevNotes/blob/master/res/img/finalView.png "现代菜单")
 
 
